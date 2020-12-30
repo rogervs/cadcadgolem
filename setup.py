@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/rogervs/cadcadgolem',
-    ackages=setuptools.find_packages(include=['cadcadgolem']),
+    packages=setuptools.find_packages(include=['cadcadgolem']),
     install_requires=[
         'cadcad',
         'yapapi'
@@ -25,4 +25,6 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.8.5',
+    use_scm_version= True,
+    setup_requires=['setuptools_scm'],
 )
