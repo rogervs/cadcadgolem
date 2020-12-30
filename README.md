@@ -16,8 +16,8 @@ source ~/.venv/cadcad
 
 If you do not yet have a working directory or virtual environment, creat both and activate. Something like so:
 ```bash
-mkdir -p ~/projects/cadcad
-cd ~/projects/cadcad
+mkdir -p ~/projects/cadcad-exp
+cd ~/projects/cadcad-exp
 python3 -m venv .venv
 source .venv/bin/activate
 ```
