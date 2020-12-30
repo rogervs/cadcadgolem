@@ -13,6 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url='https://github.com/rogervs/cadcadgolem',
     packages=setuptools.find_packages(include=['cadcadgolem']),
+    package_data={'cadcadgolem': ['remote']},
     install_requires=['cadcad'],
     classifiers=[
         'Programming Language :: Python :: 3',
