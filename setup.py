@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='cadcadgolem',
-    version='0.1.0',
+    version='0.1.1',
     author='Roger van Schie',
     author_email='rogervs@protonmail.com',
     description='A cadCAD workload dispatcher to the Golem network',
@@ -13,8 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url='https://github.com/rogervs/cadcadgolem',
     packages=setuptools.find_packages(include=['cadcadgolem']),
-    package_data={'cadcadgolem': ['remote']},
-    install_requires=['cadcad'],
+    install_requires=['cadcad','yapapi'],
     classifiers=[
         'Programming Language :: Python :: 3',
         'Intended Audience :: Science/Research',

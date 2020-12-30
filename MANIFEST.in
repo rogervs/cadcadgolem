@@ -1,1 +1,3 @@
 graft remote
+global-exclude *.py[co]
+prune __pycache__
