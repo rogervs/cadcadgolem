@@ -25,4 +25,6 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.8.5',
+    use_scm_version= True,
+    setup_requires=['setuptools_scm'],
 )
