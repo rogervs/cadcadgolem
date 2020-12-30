@@ -27,9 +27,9 @@ Now you have an isolated environment where you can install your python packages 
 ### Install cadcadgolem
 Requires [>= Python 3.8](https://www.python.org/downloads/)
 
-#### Install Using [pip](https://pypi.org/project/cadCAD/)** 
+#### Install Using [pip](https://pypi.org/project/cadCAD/)
 ```bash
-$ pip3 install *cadcadgolem*
+$ pip3 install cadcadgolem
 ```
 
 ### Install *yagna daemon*
