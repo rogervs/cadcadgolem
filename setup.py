@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/rogervs/cadcadgolem',
-    ackages=setuptools.find_packages(include=['cadcadgolem']),
+    packages=setuptools.find_packages(include=['cadcadgolem']),
     install_requires=[
         'cadcad',
         'yapapi'
