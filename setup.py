@@ -1,30 +1,51 @@
+"""\
+important note:
+the setup of setuptools_scm is self-using,
+the first execution of `python setup.py egg_info`
+will generate partial data
+its critical to run `python setup.py egg_info`
+once before running sdist or easy_install on a fresh checkouts
+pip usage is recommended
+"""
+from __future__ import print_function
+import os
+import sys
 import setuptools
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
 
-setuptools.setup(
-    name='cadcadgolem',
-    version='0.1.2',
-    author='Roger van Schie',
-    author_email='rogervs@protonmail.com',
-    description='A cadCAD workload dispatcher to the Golem network',
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url='https://github.com/rogervs/cadcadgolem',
-    packages=setuptools.find_packages(include=['cadcadgolem']),
-    install_requires=[
-        'cadcad',
-        'yapapi'
-    ],
-    classifiers=[
-        'Development Status :: 3 - Alpha',
-        'Programming Language :: Python :: 3',
-        'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
-    ],
-    python_requires='>=3.8.5',
-    use_scm_version= True,
-    setup_requires=['setuptools_scm'],
-)
+def scm_config():
+    here = os.path.dirname(os.path.abspath(__file__))
+    src = os.path.join(here, "src")
+    egg_info = os.path.join(src, "setuptools_scm.egg-info")
+    has_entrypoints = os.path.isdir(egg_info)
+    import pkg_resources
+
+    sys.path.insert(0, src)
+    pkg_resources.working_set.add_entry(src)
+    # FIXME: remove debug
+    print(src)
+    print(pkg_resources.working_set)
+    from setuptools_scm.hacks import parse_pkginfo
+    from setuptools_scm.git import parse as parse_git
+    from setuptools_scm.version import guess_next_dev_version, get_local_node_and_date
+
+    def parse(root):
+        try:
+            return parse_pkginfo(root)
+        except IOError:
+            return parse_git(root)
+
+    config = dict(
+        version_scheme=guess_next_dev_version, local_scheme=get_local_node_and_date
+    )
+
+    if has_entrypoints:
+        return dict(use_scm_version=config)
+    else:
+        from setuptools_scm import get_version
+
+        return dict(version=get_version(root=here, parse=parse, **config))
+
+
+if __name__ == "__main__":
+    setuptools.setup(**scm_config())
