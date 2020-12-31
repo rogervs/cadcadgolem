@@ -76,7 +76,7 @@ yagna payment status
 ```
 
 #### Add your app-key to your code
-When using cadcadgolem, a dictionary is passed that contains the parameters for your interaction with the network. One of them is yor app-eky, which allows you to speak to the *yagna* daemon that you started earlier. Place your app-key into your dictionary (see dictionary below).
+When using cadcadgolem, a dictionary is passed that contains the parameters for your interaction with the network. One of them is yor app-key, which allows you to speak to the *yagna* daemon that you started earlier. Place your app-key into your dictionary (see dictionary below).
 
 ## Using cadcad Golem
 
@@ -100,6 +100,11 @@ To use cadcad Golem, you need to do two things:
     [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L83)
 
 For a simple cadCAD implementation, see [simple_cadcad.py](https://github.com/rogervs/cadcad_models/blob/master/simple_cadcad.py)
+
+## System initialisation after first install
+1. `yagna service run`
+2. `yagna payment init -r`
+3. Run your cadCAD code!
 
 ## cadCAD Examples/Demos
 
