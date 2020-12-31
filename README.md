@@ -57,7 +57,7 @@ This will initialise the daemon
 yagna service run
 ```
 
-#### Generate the app key
+#### Generate the app key (This only has to done once after initial install of `yagna`)
 ```
 yagna app-key create requestor
 ```
