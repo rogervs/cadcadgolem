@@ -113,3 +113,6 @@ To modify them them to work with cadcadGolem, just add the golem_conf dictionary
 
 ## Security Notice
 The communication on the Golem network is currently not encrypted, so do not use this for any sensitive data.
+
+## Caveats
+You need at least twice as many simulation runs as you have nodes, else it the simulation will fail.
