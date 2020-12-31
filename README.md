@@ -1,6 +1,6 @@
 # cadCAD Golem
 
-## Work in progress - due date 5 January 2021 - [https://gitcoin.co/issue/golemfactory/hackathons/3/100024408]
+## Work in progress - due date 5 January 2021 - (https://gitcoin.co/issue/golemfactory/hackathons/3/100024408)
 
 This package is a wrapper for cadCAD to dispatch the simulation workload to multiple Golem nodes.
 
@@ -41,7 +41,7 @@ To install yagna, you can use their helper script:
 curl -sSf https://join.golem.network/as-requestor | bash -
 ```
 
-For manual installation instructions, see: [https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development]
+For manual installation instructions, see: (https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development)
 
 To check it is installed corretly, run:
 ```
@@ -65,7 +65,7 @@ yagna app-key create requestor
 This should produce a 32-character-long hexadecimal app key that you need to note down as it will be needed in your code to run the requestor agent.
 
 #### Get some coinage
-Golem currently has a faucit where you can get free tokens to pay for the processing that you will perform on the network.
+Golem currently has a faucet where you can get free tokens to pay for the processing that you will perform on the network.
 ```
 yagna payment init -r
 ```
@@ -91,15 +91,15 @@ To use cadcad Golem, you need to do two things:
             'TIMEOUT': 120 # In seconds
             }
     ```
-    (Example)[https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L75-L81]
+    [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L75-L81)
     
 2. Wrap your cadcad `Executor` in the cadcad Golem `Ambassador`:
     ```
     Executor = Ambassador(Executor, golem_conf)
     ```
-    (Example)[https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L83]
+    [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L83)
 
-For a simple cadCAD implementation, see (simple_cadcad.py)[https://github.com/rogervs/cadcad_models/blob/master/simple_cadcad.py]
+For a simple cadCAD implementation, see [simple_cadcad.py](https://github.com/rogervs/cadcad_models/blob/master/simple_cadcad.py)
 
 ## Security Notice
 The communication on the Golem network is currently not encrypted, so do not use this for any sensitive data.
