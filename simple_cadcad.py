@@ -6,6 +6,10 @@ from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
 import pandas as pd
 from cadcadgolem.golem_embassy import Ambassador
 
+
+# Most of this code comes from https://github.com/cadCAD-org/snippets
+
+
 def p_something(params,
                 substep,
                 state_history,

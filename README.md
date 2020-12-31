@@ -101,5 +101,10 @@ To use cadcad Golem, you need to do two things:
 
 For a simple cadCAD implementation, see [simple_cadcad.py](https://github.com/rogervs/cadcad_models/blob/master/simple_cadcad.py)
 
+## cadCAD Examples/Demos
+
+You can find more cadCAD demos to play with here: https://github.com/cadCAD-org/demos
+To modify them them to work with cadcadGolem, just add the golem_conf dictionary declaration as above, and then wrap the cadCAD `Executor` with the cadCADGolem `Ambassador` and you're done.
+
 ## Security Notice
 The communication on the Golem network is currently not encrypted, so do not use this for any sensitive data.
