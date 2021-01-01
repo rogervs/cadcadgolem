@@ -94,7 +94,7 @@ To use cadcad Golem, you need to do two things:
             'BUDGET': 10.0, # Maximum amount of crypto you are prepared to spend
             'SUBNET': "community.3", # choose your subnet, currently this is the test network
             'YAGNA_APPKEY': '<YOUR-YAGNA_APPKEY-GOES HERE>', # get this from `yagna app-key list`
-            'TIMEOUT': 120 # In seconds
+            'TIMEOUT': 120 # In seconds - you will need to figure this out for your workload. Max currently is 25min, so 25 * 60 seconds
             }
     ```
     [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L75-L81)
