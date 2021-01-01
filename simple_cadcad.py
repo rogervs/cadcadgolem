@@ -77,11 +77,11 @@ exp.append_configs(
 
 
 golem_conf = {
-        'NODES': 3, # Number of nodes to utilise from the Golem Network
+        'NODES': 3, # Number of nodes to utilise from the Golem Network. If you've got a big simulation to run, try pushing this up to 30. Remember you need at least twice as many simulation runs as you have nodes.
         'BUDGET': 10.0, # Maximum amount of crypto you are prepared to spend
         'SUBNET': "community.3", # choose your subnet, currently this is the test network
         'YAGNA_APPKEY': '856340c2e28f4c4ab0def44d09306439', # get this from `yagna app-key list`
-        'TIMEOUT': 120 # In seconds
+        'TIMEOUT': 120 # In seconds - you will need to figure this out for your workload. Max currently is 25min, so 25 * 60 seconds
         }
 
 Executor = Ambassador(Executor, golem_conf)

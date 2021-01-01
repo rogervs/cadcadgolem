@@ -6,6 +6,12 @@ This package is a wrapper for cadCAD to dispatch the simulation workload to mult
 
 [cadCAD](https://github.com/cadCAD-org/cadCAD) is a Python package that assists in the processes of designing, testing and validating complex systems through simulation, with support for Monte Carlo methods, A/B testing and parameter sweeping.
 
+[Golem](https://golem.network/) is a global, open source, decentralized supercomputer that anyone can access. It is made up of the combined power of users' machines, from PC's to entire data centers.
+
+## Note
+
+The Golem network is still under development, and not all nodes behave perfectly. If your simulatino fails, try again a few times.
+
 ## Getting Started
 
 ### Initialise/Create environment and working directory
@@ -84,7 +90,7 @@ To use cadcad Golem, you need to do two things:
 1. Define the golem_conf dictionary:
     ```
     golem_conf = {
-            'NODES': 3, # Number of nodes to utilise from the Golem Network
+            'NODES': 3, # Number of nodes to utilise from the Golem Network. If you've got a big simulation to run, try pushing this up to 30. Remember you need at least twice as many simulation runs as you have nodes.
             'BUDGET': 10.0, # Maximum amount of crypto you are prepared to spend
             'SUBNET': "community.3", # choose your subnet, currently this is the test network
             'YAGNA_APPKEY': '<YOUR-YAGNA_APPKEY-GOES HERE>', # get this from `yagna app-key list`
