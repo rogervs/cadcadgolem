@@ -86,8 +86,13 @@ When using cadcadgolem, a dictionary is passed that contains the parameters for 
 
 ## Using cadcad Golem
 
-To use cadcad Golem, you need to do two things:
-1. Define the golem_conf dictionary:
+To use cadcad Golem, you need to do three things:
+
+1. Import the cadcad Golem Ambassador:
+```
+from cadcadgolem.golem_embassy import Ambassador
+```
+2. Define the golem_conf dictionary:
     ```
     golem_conf = {
             'NODES': 3, # Number of nodes to utilise from the Golem Network. If you've got a big simulation to run, try pushing this up to 30. Remember you need at least twice as many simulation runs as you have nodes.
@@ -99,7 +104,7 @@ To use cadcad Golem, you need to do two things:
     ```
     [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L75-L81)
     
-2. Wrap your cadcad `Executor` in the cadcad Golem `Ambassador`:
+3. Wrap your cadcad `Executor` in the cadcad Golem `Ambassador`:
     ```
     Executor = Ambassador(Executor, golem_conf)
     ```
