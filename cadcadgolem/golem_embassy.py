@@ -7,6 +7,9 @@ import os
 import subprocess
 import json
 
+TEXT_COLOR_YELLOW = "\033[33;1m"
+TEXT_COLOR_DEFAULT = "\033[0m"
+
 script_dir = pathlib.Path(__file__).resolve().parent
 pickle_dir = script_dir / 'pickles'
 remote_exec_dir = script_dir / 'remote'
@@ -19,16 +22,16 @@ gol_work_dir = pathlib.Path('/golem/work')
 gol_env_path = gol_work_dir / remote_env_file
 
 location_dict = {
-        "script_dir" : script_dir,
-        "pickle_dir" :pickle_dir,
-        "remote_exec_dir" :remote_exec_dir,
-        "remote_env_file" :remote_env_file,
-        "remote_exec_file" :remote_exec_file,
-        "remote_log_dir" :remote_log_dir,
-        "remote_env_path" :remote_env_path,
-        "remote_exec_path" :remote_exec_path,
-        "gol_work_dir" :gol_work_dir,
-        "gol_env_path" :gol_env_path,
+        "script_dir" : str(script_dir),
+        "pickle_dir" : str(pickle_dir),
+        "remote_exec_dir" : str(remote_exec_dir),
+        "remote_env_file" : str(remote_env_file),
+        "remote_exec_file" : str(remote_exec_file),
+        "remote_log_dir" : str(remote_log_dir),
+        "remote_env_path" : str(remote_env_path),
+        "remote_exec_path" : str(remote_exec_path),
+        "gol_work_dir" : str(gol_work_dir),
+        "gol_env_path" : str(gol_env_path),
 }
             
 def Ambassador(func, golem_conf):
@@ -57,13 +60,13 @@ def Ambassador(func, golem_conf):
             dill_out.close()
 
         def golem_diplomat(golem_conf):
-            print('Initiating Communication With Golem Network')
-            # subprocess.call(['sleep 5'], shell=True, capture_output=True)
-            # print('process call done')result = subprocess.run(
+            print(
+                f"{TEXT_COLOR_YELLOW}"
+                f"Initiating Communication with Golem Network"
+                f"{TEXT_COLOR_DEFAULT}"
+            )
 
-            result = subprocess.run([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf)], capture_output=True, text=True)
-            print("stdout:", result.stdout)
-            print("stderr:", result.stderr)
+            subprocess.call([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf), json.dumps(location_dict)])
 
 
 
@@ -94,8 +97,7 @@ def Ambassador(func, golem_conf):
 
         def golem_execute(self, *args, **kwargs):
             golem_diplomat(golem_conf)
-            #return golem_reconstruct(self)
-            return (1,2,3,4), ("a","b","c","d"), ("a1","b2","c3","d4")
+            return golem_reconstruct(self)
 
         func.execute = golem_execute
 

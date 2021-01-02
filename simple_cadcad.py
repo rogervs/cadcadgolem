@@ -80,7 +80,9 @@ golem_conf = {
         'NODES': 3, # Number of nodes to utilise from the Golem Network. If you've got a big simulation to run, try pushing this up to 30. Remember you need at least twice as many simulation runs as you have nodes.
         'BUDGET': 10.0, # Maximum amount of crypto you are prepared to spend
         'SUBNET': "community.3", # choose your subnet, currently this is the test network
-        'YAGNA_APPKEY': 'b6ffff6ff0874848bec55aec6c02d6b5', # get this from `yagna app-key list`
+#         'SUBNET': 'devnet-alpha.3',
+        'YAGNA_APPKEY': '8a5e4a8b9023406ea7a770010b2d513a', # get this from `yagna app-key list`
+
         'TIMEOUT': 120 # In seconds - you will need to figure this out for your workload. Max currently is 25min, so 25 * 60 seconds
         }
 

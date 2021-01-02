@@ -25,22 +25,33 @@ TEXT_COLOR_WHITE = "\033[37;1m"
 TEXT_COLOR_DEFAULT = "\033[0m"
 
 
-async def main(run_conf: dict):
+async def main(run_conf: dict, location_dict):
     package = await vm.repo(
         image_hash="a885ed794412c27dedb49d52181ca6ea1a6f4e69b3cce365f1020966",
         min_mem_gib=0.5,
         min_storage_gib=2.0,
     )
 
+
     async def worker(ctx: WorkContext, tasks):
         async for task in tasks:
             node = task.data
 
             # Set various file locations
-            output_file = str(pickle_dir / f"node_{node}_in.pickle")
-            log_file = str(remote_log_dir / f"node_{node}.log")
-            sh_log_file = str(remote_log_dir / f"node_{node}_sh.log")
-            pickle_path = str(pickle_dir / f"node_{node}_out.pickle")
+            output_file = str(location_dict['pickle_dir'] + '/' + f"node_{node}_in.pickle")
+            log_file = str(location_dict['remote_log_dir'] + '/' + f"node_{node}.log")
+            sh_log_file = str(location_dict['remote_log_dir'] + '/' + f"node_{node}_sh.log")
+            pickle_path = str(location_dict['pickle_dir'] + '/' + f"node_{node}_out.pickle")
+            remote_env_path = str(location_dict['remote_env_path'])
+            remote_env_file = str(location_dict['remote_env_file'])
+            remote_exec_path = str(location_dict['remote_exec_path'])
+            remote_exec_file = str(location_dict['remote_exec_file'])
+
+            print(
+                f"{TEXT_COLOR_YELLOW}"
+                f"Initialising Payload for Node: {node}"
+                f"{TEXT_COLOR_DEFAULT}"
+            )
 
             # Send data, environment shell script, and execution script
             ctx.send_file(pickle_path, f"/golem/resource/node_{node}_out.pickle")
@@ -50,12 +61,20 @@ async def main(run_conf: dict):
             # /dev/shm is needed for python multiprocessing
             ctx.run("/bin/mkdir", "-p", "/dev/shm")
             ctx.run("/bin/mount", "-t", "tmpfs", "tmpfs", "/dev/shm") 
+
+            print(
+                f"{TEXT_COLOR_BLUE}"
+                f"Initiating Simulation on Node: {node}"
+                f"{TEXT_COLOR_DEFAULT}"
+            )
+
             commands = (
                  f'chmod a+x {remote_env_file}; '
                  f'./{remote_env_file}; '
             )
             ctx.run("/bin/sh", "-c", commands)
             
+
             # Pull logs and data
             ctx.download_file(f"/golem/output/node_{node}_in.pickle", output_file)
             ctx.download_file("/golem/output/output.log", log_file)
@@ -115,7 +134,7 @@ async def main(run_conf: dict):
             )
 
 
-def golem_diplomat(golem_conf):
+def golem_diplomat(golem_conf, location_dict ):
     os.environ['YAGNA_APPKEY'] = golem_conf['YAGNA_APPKEY']
     description = "cadCAD Simulation"
     yapapi_log_file="cadcad-yapapi.log"
@@ -127,24 +146,12 @@ def golem_diplomat(golem_conf):
 
     loop = asyncio.get_event_loop()
 
-    subnet = golem_conf['SUBNET']
-
-
     sys.stderr.write(
             f"yapapi version: {TEXT_COLOR_YELLOW}{yapapi_version}{TEXT_COLOR_DEFAULT}\n"
             )
     sys.stderr.write(f"Using subnet: {TEXT_COLOR_YELLOW}{golem_conf['SUBNET']}{TEXT_COLOR_DEFAULT}\n")
 
-    #print("run_conf prior :", golem_conf)
-    # run_conf = {
-    #         'subnet_tag': subnet,
-    #         'node_count': 3,
-    #         'budget': 10.0
-    #         }
-    # print("run_conf post :", run_conf)
-
-
-    task = loop.create_task(main(run_conf=golem_conf))
+    task = loop.create_task(main(run_conf=golem_conf, location_dict=location_dict))
     try:
         loop.run_until_complete(task)
     except KeyboardInterrupt:
@@ -165,4 +172,4 @@ def golem_diplomat(golem_conf):
         except (asyncio.CancelledError, KeyboardInterrupt):
             pass
 
-golem_diplomat(json.loads(sys.argv[1]))
+golem_diplomat(json.loads(sys.argv[1]), json.loads(sys.argv[2]))
