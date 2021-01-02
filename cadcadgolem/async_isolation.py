@@ -49,7 +49,7 @@ async def main(run_conf: dict, location_dict):
 
             print(
                 f"{TEXT_COLOR_YELLOW}"
-                f"Initialising Payload for Node: {node}"
+                f"Negotiating Transcation for Simulation Bundle20: {node}"
                 f"{TEXT_COLOR_DEFAULT}"
             )
 
@@ -64,7 +64,7 @@ async def main(run_conf: dict, location_dict):
 
             print(
                 f"{TEXT_COLOR_BLUE}"
-                f"Initiating Simulation on Node: {node}"
+                f"Registering Simulation of Simulation Bundle: {node}"
                 f"{TEXT_COLOR_DEFAULT}"
             )
 
@@ -75,14 +75,7 @@ async def main(run_conf: dict, location_dict):
             ctx.run("/bin/sh", "-c", commands)
 
             # Pull logs and data
-            print(
-                f"{TEXT_COLOR_BLUE}"
-                f"Output file to: {output_file}"
-                f"Type: {type(output_file)}"
-                f"{TEXT_COLOR_DEFAULT}"
-            )
             ctx.download_file(f"/golem/output/node_{node}_in.pickle", output_file)
-            print('sisi*'*80)
             ctx.download_file("/golem/output/output.log", log_file)
             ctx.download_file("/golem/output/sh.log", sh_log_file)
 

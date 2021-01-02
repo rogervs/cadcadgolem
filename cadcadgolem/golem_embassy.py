@@ -66,7 +66,7 @@ def Ambassador(func, golem_conf):
                 f"Initiating Negotiations With Golem Network\n"
                 f"===================================================================\n"
                 f"See your Jupyter server terminal/log for realtime details\n"
-                f"This is a good to go think about what TIMEOUT you set.\n"
+                f"This is a good time to go think about what TIMEOUT you set.\n"
                 f"If you are not in a hurry, or you just don't know, you can\n"
                 f"set it up to 25 minutes.But note, that is 25 minutes per attempt.\n"
                 f"A server could stall, and hold you there for 25 minutes,\n"
