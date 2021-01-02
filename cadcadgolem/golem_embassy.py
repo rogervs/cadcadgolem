@@ -62,13 +62,34 @@ def Ambassador(func, golem_conf):
         def golem_diplomat(golem_conf):
             print(
                 f"{TEXT_COLOR_YELLOW}"
-                f"Initiating Communication with Golem Network"
+                f"================================================================================\n"
+                f"Initiating Communication with Golem Network\n"
+                f"================================================================================"
                 f"{TEXT_COLOR_DEFAULT}"
             )
 
-            subprocess.call([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf), json.dumps(location_dict)])
+#            subprocess.call([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf), json.dumps(location_dict)])
+#            proc = subprocess.Popen([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf), json.dumps(location_dict)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+#            for line in proc.stdout:
+#                print(line)
+#
+#            p = subprocess.Popen([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf), json.dumps(location_dict)], stdout=subprocess.PIPE, bufsize=1)
+#            for line in iter(p.stdout.readline, b''):
+#                print(line)
+#            p.stdout.close()        
+#            p.wait()
 
+#            with subprocess.Popen([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf), json.dumps(location_dict)], stderr=subprocess.PIPE, bufsize=1, universal_newlines=True) as p:
+#                while True:
+#                    try:
+#                        line = p.stdout.readline()
+#                    #if not line:
+#                    except:
+#                        break
+#                    print(line)    
+#                exit_code = p.poll()
 
+            subprocess.run([sys.executable, script_dir / "async_isolation.py", json.dumps(golem_conf), json.dumps(location_dict)], bufsize=1, universal_newlines=True)   
 
         def golem_reconstruct(self):
             # Load data files received back from Golem network

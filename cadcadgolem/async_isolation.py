@@ -73,7 +73,6 @@ async def main(run_conf: dict, location_dict):
                  f'./{remote_env_file}; '
             )
             ctx.run("/bin/sh", "-c", commands)
-            
 
             # Pull logs and data
             ctx.download_file(f"/golem/output/node_{node}_in.pickle", output_file)
@@ -83,12 +82,14 @@ async def main(run_conf: dict, location_dict):
 #            yield ctx.commit(timeout=timedelta(seconds=120))
 #            task.accept_result(result=log_file)
 #            task.accept_result(result=sh_log_file)
+            print('tio')
+            print(run_conf['TIMEOUT'])
             try:
                 # Set timeout for executing the script on the provider. Two minutes is plenty
                 # of time for computing a single frame, for other tasks it may be not enough.
                 # If the timeout is exceeded, this worker instance will be shut down and all
                 # remaining tasks, including the current one, will be computed by other providers.
-                yield ctx.commit(timeout=timedelta(seconds=120))
+                yield ctx.commit(timeout=timedelta(seconds=run_conf['TIMEOUT']))
                 # TODO: Check if job results are valid
                 # and reject by: task.reject_task(reason = 'invalid file')
                 task.accept_result(result=output_file)
