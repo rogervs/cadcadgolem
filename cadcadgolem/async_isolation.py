@@ -75,15 +75,20 @@ async def main(run_conf: dict, location_dict):
             ctx.run("/bin/sh", "-c", commands)
 
             # Pull logs and data
+            print(
+                f"{TEXT_COLOR_BLUE}"
+                f"Output file to: {output_file}"
+                f"Type: {type(output_file)}"
+                f"{TEXT_COLOR_DEFAULT}"
+            )
             ctx.download_file(f"/golem/output/node_{node}_in.pickle", output_file)
+            print('sisi*'*80)
             ctx.download_file("/golem/output/output.log", log_file)
             ctx.download_file("/golem/output/sh.log", sh_log_file)
 
 #            yield ctx.commit(timeout=timedelta(seconds=120))
 #            task.accept_result(result=log_file)
 #            task.accept_result(result=sh_log_file)
-            print('tio')
-            print(run_conf['TIMEOUT'])
             try:
                 # Set timeout for executing the script on the provider. Two minutes is plenty
                 # of time for computing a single frame, for other tasks it may be not enough.
