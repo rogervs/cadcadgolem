@@ -49,7 +49,7 @@ async def main(run_conf: dict, location_dict):
 
             print(
                 f"{TEXT_COLOR_YELLOW}"
-                f"Negotiating Transcation for Simulation Bundle20: {node}"
+                f"Negotiating Transcation for Simulation Bundle: {node}"
                 f"{TEXT_COLOR_DEFAULT}"
             )
 
