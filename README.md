@@ -10,7 +10,7 @@ This package is a wrapper for cadCAD to dispatch the simulation workload to mult
 
 ## Note
 
-* cadCAD Golem does not run under Jupyter notebooks yet due to a conflict with the way Jupyter Notebook uses asyncio. - to bypass this, download your Jupyter notebook as a `.py` file and run it from the command line. This is a constraint that will need to be fixed in the future.
+* Jupyter Notebook support added.
 
 * The Golem network is still under development, and not all nodes behave perfectly. If your simulatino fails, try again a few times.
 
