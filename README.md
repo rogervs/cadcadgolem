@@ -112,8 +112,8 @@ from cadcadgolem.golem_embassy import Ambassador
     ```
     [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L83)
 
-For a simple Jupyter Notebook example, see [param_sweep.ipynb](https://github.com/rogervs/cadcadgolem/blob/master/param_sweep.ipynb)
-For a simple python script implementation, see [simple_cadcad.py](https://github.com/rogervs/cadcad_models/blob/master/simple_cadcad.py)
+* Jupyter Notebook Example: [minimal_param_sweep.ipynb](https://github.com/rogervs/cadcadgolem/blob/master/minimal_param_sweep.ipynb)
+* Python script Example:  [simple_cadcad.py](https://github.com/rogervs/cadcad_models/blob/master/simple_cadcad.py)
 
 ## System initialisation after first install
 1. `yagna service run`
