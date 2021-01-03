@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='cadcadgolem',
-    version='0.2.0',
+    version='0.2.1',
     author='Roger van Schie',
     author_email='rogervs@protonmail.com',
     description='A cadCAD workload dispatcher to the Golem network',
@@ -25,4 +25,6 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.8.5',
+    use_scm_version= True,
+    setup_requires=['setuptools_scm'],
 )
