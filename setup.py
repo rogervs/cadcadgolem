@@ -1,4 +1,5 @@
 import setuptools
+import glob
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -12,11 +13,12 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/rogervs/cadcadgolem',
-    packages=setuptools.find_packages(include=['cadcadgolem']),
+    packages=setuptools.find_packages(include=['cadcadgolem', 'cadcadgolem.*']),
     install_requires=[
         'cadcad',
         'yapapi'
     ],
+    include_package_data=True,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Programming Language :: Python :: 3',
@@ -25,6 +27,4 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.8.5',
-    use_scm_version= True,
-    setup_requires=['setuptools_scm'],
 )
