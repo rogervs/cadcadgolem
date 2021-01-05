@@ -1,7 +1,5 @@
 # cadCAD Golem
 
-## Work in progress - due date 5 January 2021 - (https://gitcoin.co/issue/golemfactory/hackathons/3/100024408)
-
 This package is a wrapper for cadCAD to dispatch the simulation workload to multiple Golem nodes.
 
 [cadCAD](https://github.com/cadCAD-org/cadCAD) is a Python package that assists in the processes of designing, testing and validating complex systems through simulation, with support for Monte Carlo methods, A/B testing and parameter sweeping.
@@ -15,6 +13,10 @@ This package is a wrapper for cadCAD to dispatch the simulation workload to mult
 * The Golem network is still under development, and not all nodes behave perfectly. If your simulatino fails, try again a few times.
 
 ## Getting Started
+
+### Demo Video
+https://www.youtube.com/watch?v=HD_eM_bN1fM
+[![cadcadGolem Installation and use demo]()](https://www.youtube.com/watch?v=HD_eM_bN1fM)
 
 ### Initialise/Create environment and working directory
 If you are already using cadCAD, activate the virtual environment that you use for cadCAD. This might look something like:
