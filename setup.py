@@ -23,7 +23,7 @@ setuptools.setup(
         'Development Status :: 3 - Alpha',
         'Programming Language :: Python :: 3',
         'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: gpl-3.0',
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.8.5',
