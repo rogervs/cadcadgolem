@@ -106,13 +106,13 @@ from cadcadgolem.golem_embassy import Ambassador
             'TIMEOUT': 120 # In seconds - you will need to figure this out for your workload. Max currently is 25min, so 25 * 60 seconds
             }
     ```
-    [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L75-L81)
+    [Example](https://github.com/rogervs/cadcad_models/blob/dc17128d2a0b874c809529230d17f5c387418cc3/simple_cadcad.py#L71-L77)
     
 3. Wrap your cadcad `Executor` in the cadcad Golem `Ambassador`:
     ```
     Executor = Ambassador(Executor, golem_conf)
     ```
-    [Example](https://github.com/rogervs/cadcad_models/blob/2e61a84d1f28b23a3e0e9ef01f3c1f4fd4c85b2d/simple_cadcad.py#L83)
+    [Example](https://github.com/rogervs/cadcad_models/blob/dc17128d2a0b874c809529230d17f5c387418cc3/simple_cadcad.py#L79)
 
 * Jupyter Notebook Example: [minimal_param_sweep.ipynb](https://github.com/rogervs/cadcadgolem/blob/master/minimal_param_sweep.ipynb)
 * Python script Example:  [simple_cadcad.py](https://github.com/rogervs/cadcad_models/blob/master/simple_cadcad.py)
