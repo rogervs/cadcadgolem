@@ -16,7 +16,7 @@ This package is a wrapper for cadCAD to dispatch the simulation workload to mult
 
 ### Demo Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/HD_eM_bN1fM/0.jpg)](https://www.youtube.com/watch?v=HD_eM_bN1fM)
+[![cadCAD Golem Installation and Use Demo](https://img.youtube.com/vi/HD_eM_bN1fM/0.jpg)](https://www.youtube.com/watch?v=HD_eM_bN1fM)
 
 ### Initialise/Create environment and working directory
 If you are already using cadCAD, activate the virtual environment that you use for cadCAD. This might look something like:
