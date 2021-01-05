@@ -72,8 +72,7 @@ def Ambassador(func, golem_conf):
                 f"set it up to 25 minutes.But note, that is 25 minutes per attempt.\n"
                 f"A server could stall, and hold you there for 25 minutes,\n"
                 f"before you let that workload go and go find another server.\n"
-                f"To stop this, you will have to kill your Jupyter Server.\n"
-                f"Just Ctrl-c (a few times) at the same place you're watching the logs.\n"
+                f"To stop this, you will need to interrupt your Jupyter Kernel.\n"
                 f"===================================================================\n"
                 f"{TEXT_COLOR_DEFAULT}"
             )
