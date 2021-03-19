@@ -25,7 +25,7 @@ pytz==2020.5
 six==1.15.0
 toml==0.10.2
 typing-extensions==3.7.4.3
-urllib3==1.26.2
+urllib3==1.26.3
 ya-aioclient==0.3.0
 yapapi==0.4.1
 yarl==1.6.3
