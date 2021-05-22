@@ -1,4 +1,4 @@
-aiohttp==3.7.3
+aiohttp==3.7.4
 aiohttp-sse-client==0.1.7
 async-exit-stack==1.0.1
 async-timeout==3.0.1
