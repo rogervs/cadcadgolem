@@ -8,7 +8,7 @@ This package is a wrapper for cadCAD to dispatch the simulation workload to mult
 
 ## Note
 
-* Jupyter Notebook support added.
+* __As the Golem VM's are pregenerated, and don't yet have internet connectivity, if you use a library that is NOT preinstalled in the Golem VM, your code will fail. If cadCADGolem does not work for you, please create an [Issue](https://github.com/rogervs/cadcadgolem/issues), give a brief description, and please include the libraries that you are importing/using. I will then generate a new Golem VM to include your libraries, which will hopefully fix the issue.__
 
 * The Golem network is still under development, and not all nodes behave perfectly. If your simulatino fails, try again a few times.
 
