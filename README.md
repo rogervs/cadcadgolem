@@ -1,5 +1,7 @@
 # cadCAD Golem
 
+## **This project is out of date due to changes in the Golem api. There is currently no intention to update this project**
+
 This package is a wrapper for cadCAD to dispatch the simulation workload to multiple Golem nodes.
 
 [cadCAD](https://github.com/cadCAD-org/cadCAD) is a Python package that assists in the processes of designing, testing and validating complex systems through simulation, with support for Monte Carlo methods, A/B testing and parameter sweeping.
